@@ -1,0 +1,8 @@
+translateModel("MotorDriveTest")
+controller.k := 500 ; 
+controller.Td := 0 ; 
+simulateModel("MotorDriveTest");
+plot({"motor.Jm.phi"});
+// You can open the controller and tune the parameters.
+// Then press the Simulate button.
+

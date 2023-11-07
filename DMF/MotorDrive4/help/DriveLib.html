@@ -1,0 +1,179 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>DriveLib</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 9pt; font-family: Courier, monospace; white-space: pre; }
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { border: 1px solid #808080; vertical-align: top; }
+th      { border: 1px solid #808080; vertical-align: top; font-weight: bold; }
+table   { border: 1px solid #808080; border-collapse: collapse; }
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE DriveLib<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="DriveLib"></a>DriveLib</h2>
+<p>
+</p>
+<h3>Information</h3>
+<p>Extends from <a href="file:///C:/Program%20Files%20(x86)/Dymola%202015%20Alpha/Modelica/Library/Modelica%203.2.1/help/Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</a> (Icon for standard packages).</p>
+<h3>Package Content</h3>
+<table border="1" cellspacing="0" cellpadding="2" summary="Package Content">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="DriveLib.MotorS.png" alt="DriveLib.Motor" width="20" height="20" align="top">&nbsp;<a href="DriveLib.html#DriveLib.Motor"
+>Motor</a>
+</td>
+<td>A basic model of an electrical dc motor.</td>
+</tr>
+<tr>
+<td><a href="DriveLib.html#DriveLib.MotorDrive"
+>MotorDrive</a>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a href="DriveLib.html#DriveLib.TestMotor"
+>TestMotor</a>
+</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<hr>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Motor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="DriveLib.MotorI.png" alt="DriveLib.Motor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="DriveLib.Motor"></a><a href="DriveLib.html#DriveLib"
+>DriveLib</a>.Motor</h2>
+<p>
+<b>A basic model of an electrical dc motor.</b>
+<br>
+<br><img src="DriveLib.MotorD.png" alt="DriveLib.Motor">
+</p>
+<h3>Information</h3>
+<pre>A basic model of an electrical dc motor.
+</pre>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="2" summary="Connectors">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr>
+<tr><td>input <a href="file:///C:/Program%20Files%20(x86)/Dymola%202015%20Alpha/Modelica/Library/Modelica%203.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</a></td><td>inPort</td><td>&nbsp;</td></tr>
+<tr><td><a href="file:///C:/Program%20Files%20(x86)/Dymola%202015%20Alpha/Modelica/Library/Modelica%203.2.1/help/Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_b"
+>Flange_b</a></td><td>flange_b</td><td>&nbsp;</td></tr>
+</table>
+<h3>Modelica definition</h3>
+<div class="modelica"><span style="color: blue">model</span> Motor <span style="color: #006400">&quot;A basic model of an electrical dc motor.&quot;</span>
+
+  <a href="file:///C:/Program%20Files%20(x86)/Dymola%202015%20Alpha/Modelica/Library/Modelica%203.2.1/help/Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources.SignalVoltage"
+>Modelica.Electrical.Analog.Sources.SignalVoltage</a> Vs;
+  <a href="file:///C:/Program%20Files%20(x86)/Dymola%202015%20Alpha/Modelica/Library/Modelica%203.2.1/help/Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Ground"
+>Modelica.Electrical.Analog.Basic.Ground</a> G;
+  <a href="file:///C:/Program%20Files%20(x86)/Dymola%202015%20Alpha/Modelica/Library/Modelica%203.2.1/help/Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Resistor"
+>Modelica.Electrical.Analog.Basic.Resistor</a> Ra(R=0.5);
+  <a href="file:///C:/Program%20Files%20(x86)/Dymola%202015%20Alpha/Modelica/Library/Modelica%203.2.1/help/Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Inductor"
+>Modelica.Electrical.Analog.Basic.Inductor</a> La(L=0.05);
+  <a href="file:///C:/Program%20Files%20(x86)/Dymola%202015%20Alpha/Modelica/Library/Modelica%203.2.1/help/Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.EMF"
+>Modelica.Electrical.Analog.Basic.EMF</a> emf;
+  <a href="file:///C:/Program%20Files%20(x86)/Dymola%202015%20Alpha/Modelica/Library/Modelica%203.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</a> inPort;
+  <a href="file:///C:/Program%20Files%20(x86)/Dymola%202015%20Alpha/Modelica/Library/Modelica%203.2.1/help/Modelica_Mechanics_Rotational_Components.html#Modelica.Mechanics.Rotational.Components.Inertia"
+>Modelica.Mechanics.Rotational.Components.Inertia</a> Jm(
+                                           J=0.001);
+  <a href="file:///C:/Program%20Files%20(x86)/Dymola%202015%20Alpha/Modelica/Library/Modelica%203.2.1/help/Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_b"
+>Modelica.Mechanics.Rotational.Interfaces.Flange_b</a> flange_b;
+<span style="color: blue">equation </span>
+  <span style="color: red">connect</span>(Ra.n, La.p);
+  <span style="color: red">connect</span>(La.n, emf.p);
+  <span style="color: red">connect</span>(emf.flange,   Jm.flange_a);
+  <span style="color: red">connect</span>(Ra.p, Vs.p);
+  <span style="color: red">connect</span>(Vs.n, emf.n);
+  <span style="color: red">connect</span>(G.p, Vs.n);
+  <span style="color: red">connect</span>(Jm.flange_b, flange_b);
+  <span style="color: red">connect</span>(inPort,Vs.v);
+<span style="color: blue">end </span>Motor;
+</div>
+<hr>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE MotorDrive<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="DriveLib.MotorDrive"></a><a href="DriveLib.html#DriveLib"
+>DriveLib</a>.MotorDrive</h2>
+<p>
+<br><img src="DriveLib.MotorDriveD.png" alt="DriveLib.MotorDrive">
+</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="2" summary="Parameters">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr>
+<tr><td><a href="file:///C:/Program%20Files%20(x86)/Dymola%202015%20Alpha/Modelica/Library/Modelica%203.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Radius"
+>Radius</a></td><td>r</td><td>0.5</td><td>Radius of load [m]</td></tr>
+<tr><td><a href="file:///C:/Program%20Files%20(x86)/Dymola%202015%20Alpha/Modelica/Library/Modelica%203.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Mass"
+>Mass</a></td><td>m</td><td>80</td><td>Mass of load [kg]</td></tr>
+</table>
+<h3>Modelica definition</h3>
+<div class="modelica"><span style="color: blue">model</span> MotorDrive
+  <span style="color: blue">parameter </span><a href="file:///C:/Program%20Files%20(x86)/Dymola%202015%20Alpha/Modelica/Library/Modelica%203.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Radius"
+>Modelica.SIunits.Radius</a> r=0.5 <span style="color: #006400">&quot;Radius of load&quot;</span>;
+  <span style="color: blue">parameter </span><a href="file:///C:/Program%20Files%20(x86)/Dymola%202015%20Alpha/Modelica/Library/Modelica%203.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Mass"
+>Modelica.SIunits.Mass</a> m=80 <span style="color: #006400">&quot;Mass of load&quot;</span>;
+  <a href="DriveLib.html#DriveLib.Motor"
+>DriveLib.Motor</a> motor;
+  <a href="file:///C:/Program%20Files%20(x86)/Dymola%202015%20Alpha/Modelica/Library/Modelica%203.2.1/help/Modelica_Mechanics_Rotational_Components.html#Modelica.Mechanics.Rotational.Components.IdealGear"
+>Modelica.Mechanics.Rotational.Components.IdealGear</a> gearbox(
+                                                  ratio=100, useSupport=false);
+  <a href="file:///C:/Program%20Files%20(x86)/Dymola%202015%20Alpha/Modelica/Library/Modelica%203.2.1/help/Modelica_Mechanics_Rotational_Components.html#Modelica.Mechanics.Rotational.Components.Inertia"
+>Modelica.Mechanics.Rotational.Components.Inertia</a> load(
+                                             J=0.5*m*r*r);
+  <a href="file:///C:/Program%20Files%20(x86)/Dymola%202015%20Alpha/Modelica/Library/Modelica%203.2.1/help/Modelica_Mechanics_Rotational_Sensors.html#Modelica.Mechanics.Rotational.Sensors.AngleSensor"
+>Modelica.Mechanics.Rotational.Sensors.AngleSensor</a> phiload;
+  <a href="file:///C:/Program%20Files%20(x86)/Dymola%202015%20Alpha/Modelica/Library/Modelica%203.2.1/help/Modelica_Blocks_Math.html#Modelica.Blocks.Math.Feedback"
+>Modelica.Blocks.Math.Feedback</a> positionerror;
+  <a href="file:///C:/Program%20Files%20(x86)/Dymola%202015%20Alpha/Modelica/Library/Modelica%203.2.1/help/Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous.PID"
+>Modelica.Blocks.Continuous.PID</a> controller;
+<span style="color: blue">equation </span>
+  <span style="color: red">connect</span>(gearbox.flange_b, load.flange_a);
+  <span style="color: red">connect</span>(load.flange_b,phiload.flange);
+  <span style="color: red">connect</span>(positionerror.u2,phiload.phi);
+  <span style="color: red">connect</span>(motor.flange_b, gearbox.flange_a);
+  <span style="color: red">connect</span>(positionerror.y,controller.u);
+  <span style="color: red">connect</span>(controller.y,       motor.inPort);
+<span style="color: blue">end </span>MotorDrive;
+</div>
+<hr>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE TestMotor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="DriveLib.TestMotor"></a><a href="DriveLib.html#DriveLib"
+>DriveLib</a>.TestMotor</h2>
+<p>
+<br><img src="DriveLib.TestMotorD.png" alt="DriveLib.TestMotor">
+</p>
+<h3>Modelica definition</h3>
+<div class="modelica"><span style="color: blue">model</span> TestMotor
+
+  <a href="DriveLib.html#DriveLib.Motor"
+>DriveLib.Motor</a> Motor1;
+  <a href="file:///C:/Program%20Files%20(x86)/Dymola%202015%20Alpha/Modelica/Library/Modelica%203.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Step"
+>Modelica.Blocks.Sources.Step</a> Step1;
+<span style="color: blue">equation </span>
+  <span style="color: red">connect</span>(Step1.y,       Motor1.inPort);
+<span style="color: blue">end </span>TestMotor;
+</div>
+<hr>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Feb 04 14:04:13 2014.
+</address>
+</body>
+</html>
