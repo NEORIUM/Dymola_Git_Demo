@@ -19,8 +19,8 @@ package Demo_DriveLib
         Placement(transformation(extent={{0,-10},{20,10}}, rotation=0)));
     Modelica.Blocks.Interfaces.RealInput inPort         annotation (Placement(
           transformation(extent={{-108,-10},{-90,10}}, rotation=0)));
-    Modelica.Mechanics.Rotational.Components.Inertia Jm(
-                                             J=0.001) annotation (Placement(
+    Modelica.Mechanics.Rotational.Components.Inertia Jm(J=0.005)
+                                                      annotation (Placement(
           transformation(extent={{38,-10},{58,10}}, rotation=0)));
     Modelica.Mechanics.Rotational.Interfaces.Flange_b flange_b annotation (Placement(
           transformation(extent={{90,-10},{110,10}}, rotation=0)));
