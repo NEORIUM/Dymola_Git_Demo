@@ -21,18 +21,18 @@ package DriveLib_Demo
           transformation(extent={{-108,-10},{-90,10}}, rotation=0)));
     Modelica.Mechanics.Rotational.Components.Inertia Jm(
                                              J=0.001) annotation (Placement(
-          transformation(extent={{40,30},{60,50}},  rotation=0)));
+          transformation(extent={{50,-10},{70,10}}, rotation=0)));
     Modelica.Mechanics.Rotational.Interfaces.Flange_b flange_b annotation (Placement(
           transformation(extent={{90,-10},{110,10}}, rotation=0)));
   equation
     connect(Ra.n, La.p) annotation (Line(points={{-40,40},{-20,40}}));
     connect(La.n, emf.p) annotation (Line(points={{0,40},{10,40},{10,10}}));
-    connect(emf.flange,   Jm.flange_a) annotation (Line(points={{20,0},{34,0},{34,40},{40,40}}));
+    connect(emf.flange,   Jm.flange_a) annotation (Line(points={{20,0},{50,0}}));
     connect(Ra.p, Vs.p) annotation (Line(points={{-60,40},{-70,40},{-70,10}}));
     connect(Vs.n, emf.n) annotation (Line(points={{-70,-10},{-70,-20},{10,-20},
             {10,-10}}));
     connect(G.p, Vs.n) annotation (Line(points={{-70,-40},{-70,-10}}));
-    connect(Jm.flange_b, flange_b) annotation (Line(points={{60,40},{86,40},{86,0},{100,0}}));
+    connect(Jm.flange_b, flange_b) annotation (Line(points={{70,0},{100,0}}));
     connect(inPort,Vs.v)       annotation (Line(points={{-99,0},{-82,4.28626e-16}}));
     annotation (
       Icon(coordinateSystem(
