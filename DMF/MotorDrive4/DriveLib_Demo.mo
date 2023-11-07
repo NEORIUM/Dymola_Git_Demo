@@ -3,11 +3,6 @@ package DriveLib_Demo
   extends Modelica.Icons.Package;
   model Motor "A basic model of an electrical dc motor."
 
-    Modelica.Electrical.Analog.Sources.SignalVoltage Vs annotation (Placement(
-          transformation(
-          origin={-70,0},
-          extent={{10,-10},{-10,10}},
-          rotation=90)));
     Modelica.Electrical.Analog.Basic.Ground G annotation (Placement(
           transformation(extent={{-80,-60},{-60,-40}}, rotation=0)));
     Modelica.Electrical.Analog.Basic.Resistor Ra(R=0.5) annotation (Placement(
@@ -18,22 +13,19 @@ package DriveLib_Demo
     Modelica.Electrical.Analog.Basic.RotationalEMF emf(k=1) annotation (
         Placement(transformation(extent={{0,-10},{20,10}}, rotation=0)));
     Modelica.Blocks.Interfaces.RealInput inPort         annotation (Placement(
-          transformation(extent={{-108,-10},{-90,10}}, rotation=0)));
+          transformation(extent={{132,-10},{114,10}},  rotation=0)));
     Modelica.Mechanics.Rotational.Components.Inertia Jm(
                                              J=0.001) annotation (Placement(
           transformation(extent={{50,-10},{70,10}}, rotation=0)));
-    Modelica.Mechanics.Rotational.Interfaces.Flange_b flange_b annotation (Placement(
-          transformation(extent={{90,-10},{110,10}}, rotation=0)));
+    Modelica.Mechanics.Rotational.Sources.Torque torque annotation (Placement(transformation(extent={{98,-10},{78,10}})));
   equation
     connect(Ra.n, La.p) annotation (Line(points={{-40,40},{-20,40}}));
     connect(La.n, emf.p) annotation (Line(points={{0,40},{10,40},{10,10}}));
-    connect(emf.flange,   Jm.flange_a) annotation (Line(points={{20,0},{50,0}}));
-    connect(Ra.p, Vs.p) annotation (Line(points={{-60,40},{-70,40},{-70,10}}));
-    connect(Vs.n, emf.n) annotation (Line(points={{-70,-10},{-70,-20},{10,-20},
-            {10,-10}}));
-    connect(G.p, Vs.n) annotation (Line(points={{-70,-40},{-70,-10}}));
-    connect(Jm.flange_b, flange_b) annotation (Line(points={{70,0},{100,0}}));
-    connect(inPort,Vs.v)       annotation (Line(points={{-99,0},{-82,4.28626e-16}}));
+    connect(torque.flange, Jm.flange_b) annotation (Line(points={{78,0},{70,0}}, color={0,0,0}));
+    connect(Jm.flange_a, emf.flange) annotation (Line(points={{50,0},{20,0}}, color={0,0,0}));
+    connect(emf.n, G.p) annotation (Line(points={{10,-10},{10,-34},{-70,-34},{-70,-40}}, color={0,0,255}));
+    connect(Ra.p, G.p) annotation (Line(points={{-60,40},{-70,40},{-70,-40}}, color={0,0,255}));
+    connect(torque.tau, inPort) annotation (Line(points={{100,0},{123,0}}, color={0,0,127}));
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=false,
