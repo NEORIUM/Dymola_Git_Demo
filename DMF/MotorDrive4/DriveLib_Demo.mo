@@ -1,5 +1,5 @@
 within ;
-package Demo_DriveLib
+package DriveLib_Demo
   extends Modelica.Icons.Package;
   model Motor "A basic model of an electrical dc motor."
 
@@ -19,20 +19,20 @@ package Demo_DriveLib
         Placement(transformation(extent={{0,-10},{20,10}}, rotation=0)));
     Modelica.Blocks.Interfaces.RealInput inPort         annotation (Placement(
           transformation(extent={{-108,-10},{-90,10}}, rotation=0)));
-    Modelica.Mechanics.Rotational.Components.Inertia Jm(J=0.001)
-                                                      annotation (Placement(
-          transformation(extent={{38,-10},{58,10}}, rotation=0)));
+    Modelica.Mechanics.Rotational.Components.Inertia Jm(
+                                             J=0.001) annotation (Placement(
+          transformation(extent={{40,-10},{60,10}}, rotation=0)));
     Modelica.Mechanics.Rotational.Interfaces.Flange_b flange_b annotation (Placement(
           transformation(extent={{90,-10},{110,10}}, rotation=0)));
   equation
     connect(Ra.n, La.p) annotation (Line(points={{-40,40},{-20,40}}));
     connect(La.n, emf.p) annotation (Line(points={{0,40},{10,40},{10,10}}));
-    connect(emf.flange,   Jm.flange_a) annotation (Line(points={{20,0},{38,0}}));
+    connect(emf.flange,   Jm.flange_a) annotation (Line(points={{20,0},{40,0}}));
     connect(Ra.p, Vs.p) annotation (Line(points={{-60,40},{-70,40},{-70,10}}));
     connect(Vs.n, emf.n) annotation (Line(points={{-70,-10},{-70,-20},{10,-20},
             {10,-10}}));
     connect(G.p, Vs.n) annotation (Line(points={{-70,-40},{-70,-10}}));
-    connect(Jm.flange_b, flange_b) annotation (Line(points={{58,0},{100,0}}));
+    connect(Jm.flange_b, flange_b) annotation (Line(points={{60,0},{100,0}}));
     connect(inPort,Vs.v)       annotation (Line(points={{-99,0},{-82,4.28626e-16}}));
     annotation (
       Icon(coordinateSystem(
@@ -70,7 +70,7 @@ package Demo_DriveLib
   partial model MotorDrive
     parameter Modelica.Units.SI.Radius r=0.5 "Radius of load";
     parameter Modelica.Units.SI.Mass m=80 "Mass of load";
-    Demo_DriveLib.Motor motor annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=0)));
+    DriveLib_Demo.Motor motor annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=0)));
     Modelica.Mechanics.Rotational.Components.IdealGear gearbox(
       ratio=100,
       useSupport=false) annotation (Placement(
@@ -109,7 +109,7 @@ package Demo_DriveLib
 
   model TestMotor
 
-    Demo_DriveLib.Motor Motor1 annotation (Placement(transformation(extent={{20,0},{40,20}}, rotation=0)));
+    DriveLib_Demo.Motor Motor1 annotation (Placement(transformation(extent={{20,0},{40,20}}, rotation=0)));
     Modelica.Blocks.Sources.Step Step1 annotation (Placement(transformation(
             extent={{-20,0},{0,20}}, rotation=0)));
   equation
@@ -123,4 +123,4 @@ package Demo_DriveLib
  dateModified="2019-02-27 15:32:00Z",
     uses(Modelica(version="4.0.0")),
     conversion(from(version="2", script="ConvertFromDriveLib_2.mos")));
-end Demo_DriveLib;
+end DriveLib_Demo;
