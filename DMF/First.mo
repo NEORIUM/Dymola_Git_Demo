@@ -22,8 +22,8 @@ model First "First example: simple drive train"
         origin={46,-22},
         extent={{-8,-8},{8,8}},
         rotation=270)));
-  Modelica.Blocks.Sources.Sine sine(amplitude=amplitude, f=f)
-    annotation (Placement(transformation(extent={{-98,-8},{-82,8}})));
+  Modelica.Blocks.Sources.Step step
+    annotation (Placement(transformation(extent={{-194,-8},{-178,8}})));
 equation
   connect(inertia1.flange_b, idealGear.flange_a)
     annotation (Line(points={{-22,0},{-8,0}}));
@@ -37,8 +37,8 @@ equation
     annotation (Line(points={{46,-14},{46,0},{38,0}}));
   connect(damper.flange_b, fixed.flange)
     annotation (Line(points={{46,-30},{46,-40}}));
-  connect(sine.y, torque.tau)
-    annotation (Line(points={{-81.2,0},{-69.6,0}}, color={0,0,127}));
+  connect(step.y, torque.tau)
+    annotation (Line(points={{-177.2,0},{-69.6,0}},color={0,0,127}));
   connect(torque.support, fixed.flange)
     annotation (Line(points={{-60,-8},{-60,-40},{46,-40}}));
   connect(idealGear.support, fixed.flange)
