@@ -17,7 +17,7 @@ model First "First example: simple drive train"
     phi(fixed=true, start=0),
     w(fixed=true, start=0)) annotation (Placement(transformation(extent={{22,-8},{38,8}})));
   Modelica.Mechanics.Rotational.Components.Spring spring(c=1.e4, phi_rel(fixed=true)) annotation (Placement(transformation(extent={{52,-8},{68,8}})));
-  Modelica.Mechanics.Rotational.Components.Inertia inertia3(J=Jload, w(fixed=true, start=0)) annotation (Placement(transformation(extent={{82,-8},{98,8}})));
+  Modelica.Mechanics.Rotational.Components.Inertia inertia3(J=Jload, w(fixed=true, start=0)) annotation (Placement(transformation(extent={{80,34},{96,50}})));
   Modelica.Mechanics.Rotational.Components.Damper damper(d=damping) annotation (Placement(transformation(
         origin={46,-22},
         extent={{-8,-8},{8,8}},
@@ -32,7 +32,7 @@ equation
   connect(inertia2.flange_b, spring.flange_a)
     annotation (Line(points={{38,0},{52,0}}));
   connect(spring.flange_b, inertia3.flange_a)
-    annotation (Line(points={{68,0},{82,0}}));
+    annotation (Line(points={{68,0},{74,0},{74,42},{80,42}}));
   connect(damper.flange_a, inertia2.flange_b)
     annotation (Line(points={{46,-14},{46,0},{38,0}}));
   connect(damper.flange_b, fixed.flange)
