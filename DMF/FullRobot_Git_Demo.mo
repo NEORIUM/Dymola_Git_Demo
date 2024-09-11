@@ -156,18 +156,6 @@ model FullRobot_Git_Demo
     kp=kp5,
     ks=ks5,
     Ts=Ts5) annotation (Placement(transformation(extent={{-20,20},{0,40}})));
-  Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.AxisType2 axis6(
-    k=0.0842,
-    w=7400,
-    D=0.27,
-    J=4.3e-5,
-    ratio=-99,
-    Rv0=10.9,
-    Rv1=3.92,
-    peak=16.8/10.9,
-    kp=kp6,
-    ks=ks6,
-    Ts=Ts6) annotation (Placement(transformation(extent={{-20,40},{0,60}})));
 protected
   Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.ControlBus controlBus
     annotation (Placement(transformation(
@@ -181,7 +169,6 @@ equation
   connect(axis4.flange, mechanics.axis4) annotation (Line(points={{0,10},{10,10},{10,4.5},{40,4.5}}));
   connect(axis5.flange, mechanics.axis5)
     annotation (Line(points={{0,30},{20,30},{20,13.5},{40,13.5}}));
-  connect(axis6.flange, mechanics.axis6) annotation (Line(points={{0,50},{30,50},{30,22.5},{40,22.5}}));
   connect(controlBus, pathPlanning.controlBus)
                                        annotation (Line(
       points={{-80,0},{-80,80},{-20,80}},
@@ -226,14 +213,6 @@ equation
       index=-1,
       extent={{-6,3},{-6,3}}), Line(
       points={{-80.1,0.1},{-77,0.1},{-77,3},{-64,3},{-64,30},{-20,30}},
-      color={255,204,51},
-      thickness=0.5));
-  connect(controlBus.axisControlBus6, axis6.axisControlBus) annotation (
-    Text(
-      string="%first",
-      index=-1,
-      extent={{-6,3},{-6,3}}), Line(
-      points={{-80.1,0.1},{-79,0.1},{-79,5},{-68,5},{-68,50},{-20,50}},
       color={255,204,51},
       thickness=0.5));
   annotation (
