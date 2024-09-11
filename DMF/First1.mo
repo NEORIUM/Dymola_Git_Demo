@@ -13,7 +13,7 @@ model First "First example: simple drive train"
   Modelica.Mechanics.Rotational.Components.Inertia inertia1(J=Jmotor) annotation (Placement(transformation(extent={{-38,-8},{-22,8}})));
   Modelica.Mechanics.Rotational.Components.IdealGear idealGear(ratio=ratio, useSupport=true) annotation (Placement(transformation(extent={{-8,-8},{8,8}})));
   Modelica.Mechanics.Rotational.Components.Inertia inertia2(
-    J=2,
+    J=10,
     phi(fixed=true, start=0),
     w(fixed=true, start=0)) annotation (Placement(transformation(extent={{22,-8},{38,8}})));
   Modelica.Mechanics.Rotational.Components.Spring spring(c=1.e4, phi_rel(fixed=true)) annotation (Placement(transformation(extent={{52,-8},{68,8}})));
